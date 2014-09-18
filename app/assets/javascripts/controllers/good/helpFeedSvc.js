@@ -6,7 +6,7 @@ angular.module("helpFeed")
 
 
       var getHelps = function () {
-        return $http.get("/");
+        return $http.get("/allposts");
       };
 
       var getHelp = function (id) {
