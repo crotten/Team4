@@ -2,7 +2,7 @@ angular.module("helpFeed")
     .controller("helpFeedCtrl", function ($scope,$log,$location, $routeParams, $rootScope, $route, helpFeedSvc) {
       $scope.currentUser = currentUser;
       console.log($scope.currentUser);
-      $scope.helps = [];
+      $scope.allPosts = [];
       helpFeedSvc.getHelps().then(function (helps) {
         $scope.helps = helps.data;
       });
@@ -14,13 +14,14 @@ angular.module("helpFeed")
 
       $scope.addHelp = function (helpObj, id) {
         var newHelp = {
+          user: $scope.currentUser.nickname,
           date:new Date(),
           problem:helpObj.problem,
           landmark:helpObj.landmark,
           comments: []
         };
           helpFeedSvc.addHelp(newHelp,$scope.currentUser.id)
-          $scope.helps.push(newHelp);
+          $scope.allPosts.push(newHelp);
           $log.info(newHelp);
           $scope.newHelp = {};
         };
