@@ -3,6 +3,10 @@ class WelcomeController < ApplicationController
 
   def index
     @posts = Post.all
+
+
+
+
     # @user = User.find params[:id]
   end
 
@@ -10,4 +14,5 @@ class WelcomeController < ApplicationController
     def user_params
       params.require(:user).permit(:email, :id)
     end
+
 end

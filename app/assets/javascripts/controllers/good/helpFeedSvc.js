@@ -1,7 +1,9 @@
 angular.module("helpFeed")
     .factory("helpFeedSvc", function ($rootScope, $log, $http) {
 
+
       var urlHelp = "/users/";
+
 
       var getHelps = function () {
         return $http.get("/allposts");
